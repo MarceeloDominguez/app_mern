@@ -1,9 +1,18 @@
 import { useEffect } from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  StatusBar,
+  ScrollView,
+} from "react-native";
 import { useIsFocused } from "@react-navigation/native";
 import { usePostContext } from "../context/PostsContext";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParams } from "../navigations/Navigation";
+import MyContacts from "../components/MyContacts";
 
 interface Props extends NativeStackScreenProps<RootStackParams> {}
 
@@ -22,8 +31,9 @@ export default function HomeScreen({ navigation }: Props) {
   };
 
   return (
-    <View style={styles.container}>
-      <Text>Guardar</Text>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+      <StatusBar />
+      <MyContacts />
       {images.length > 0 &&
         images.map((item, index) => {
           return (
@@ -40,15 +50,12 @@ export default function HomeScreen({ navigation }: Props) {
       >
         <Text style={{ color: "#fff" }}>Ir a botones</Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#202020",
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
