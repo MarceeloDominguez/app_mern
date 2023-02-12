@@ -41,6 +41,7 @@ export const PostsProvider = ({ children }: any) => {
     const fileToUpload = JSON.parse(JSON.stringify(params));
 
     const formData = new FormData();
+
     formData.append("image", fileToUpload);
 
     try {
