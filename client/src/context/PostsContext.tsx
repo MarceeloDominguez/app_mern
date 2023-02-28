@@ -4,6 +4,7 @@ import postApi from "../api/api";
 interface Post {
   _id: string;
   image: { public_id: string; url: string };
+  id: number;
 }
 
 type PostsContextProps = {

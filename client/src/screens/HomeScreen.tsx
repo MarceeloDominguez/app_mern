@@ -36,7 +36,7 @@ export default function HomeScreen({ navigation }: Props) {
   const loadPosts = async () => {
     const posts = await getPosts();
 
-    setImages(posts);
+    setImages(posts.reverse());
   };
 
   return (
